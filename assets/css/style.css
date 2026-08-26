@@ -162,10 +162,15 @@ section{ padding:90px 0; }
 @media(max-width:900px){ .contact-grid{grid-template-columns:1fr; gap:40px;} }
 .contact-info h2{ font-size:clamp(24px,3vw,32px); margin:16px 0 16px; }
 .contact-info p{ color:var(--gray); font-size:15px; margin-bottom:26px; }
-.contact-detail{ display:flex; gap:12px; align-items:flex-start; margin-bottom:16px; }
-.contact-detail .dot2{ width:7px; height:7px; border-radius:50%; background:var(--blue); margin-top:8px; flex-shrink:0; }
-.contact-detail strong{ display:block; font-size:14px; }
-.contact-detail span{ font-family:var(--mono); font-size:13px; color:var(--gray-dim); }
+.contact-detail{ display:flex; gap:16px; align-items:center; margin-bottom:20px; }
+.contact-ico{
+  width:44px; height:44px; flex-shrink:0; border-radius:10px;
+  background:var(--blue-dim); color:var(--blue);
+  display:flex; align-items:center; justify-content:center;
+}
+.contact-ico svg{ width:20px; height:20px; }
+.contact-detail strong{ display:block; font-size:13px; color:var(--gray-dim); font-weight:600; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:3px; }
+.contact-detail span{ font-family:var(--body); font-size:18px; color:var(--white); font-weight:500; }
 
 form{ background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:32px; }
 .field{ margin-bottom:16px; }
