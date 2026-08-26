@@ -11,7 +11,7 @@
   --line:rgba(245,246,248,0.09);
   --radius:6px;
   --display:'Archivo Black', sans-serif;
-  --body:'Manrope', sans-serif;
+  --body:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --mono:'JetBrains Mono', monospace;
 }
 *{box-sizing:border-box; margin:0; padding:0;}
@@ -27,13 +27,13 @@ img{max-width:100%; display:block;}
 a{color:inherit;}
 .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
 h1,h2,h3{font-family:var(--display); line-height:1.05; letter-spacing:-0.01em; text-transform:uppercase;}
-.badge{ display:inline-flex; align-items:center; gap:8px; }
+.badge{ display:inline-flex; align-items:center; gap:10px; }
 .badge .tag{
   background:var(--orange); color:#fff; font-family:var(--mono); font-weight:700;
-  font-size:11px; letter-spacing:0.04em; padding:4px 9px; border-radius:4px;
+  font-size:13px; letter-spacing:0.04em; padding:5px 11px; border-radius:4px;
 }
 .badge .loc{
-  font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
+  font-family:var(--mono); font-size:14.5px; letter-spacing:0.06em; text-transform:uppercase;
   color:var(--gold); font-weight:600;
 }
 @media (prefers-reduced-motion: no-preference){
@@ -134,7 +134,7 @@ section{ padding:90px 0; }
 .section-head{ max-width:640px; margin-bottom:52px; }
 .section-head h2{ font-size:clamp(26px,3.2vw,36px); margin-top:16px; }
 .section-head p{ margin-top:14px; color:var(--gray); font-size:15.5px; }
-.eyebrow-mono{ font-family:var(--mono); font-size:12px; color:var(--orange); letter-spacing:0.08em; }
+.eyebrow-mono{ font-family:var(--mono); font-size:14.5px; font-weight:600; color:var(--orange); letter-spacing:0.07em; }
 
 .services{ background:var(--bg-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
 .service-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
