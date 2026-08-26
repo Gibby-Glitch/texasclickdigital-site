@@ -17,10 +17,10 @@ if('IntersectionObserver' in window){
 
 // Testimonial carousel — edit this array to change reviews
 const testimonials = [
+  { stars: 5, quote: "Gibby at Texas Click Digital is professional, straightforward, and delivers on time. Updating and changing out sections is extremely easy — he makes the whole process smooth from start to finish.", name: "Jack K.", org: "Business Owner" },
+  { stars: 5, quote: "Gibby is the best. Super easy to work with and extremely helpful. Highly recommend.", name: "Gary R.", org: "Client" },
   { stars: 5, quote: "Gibby is so patient when making sure I get exactly what I need on the page. He doesn't stop until it's right — and the results speak for themselves.", name: "Holly N.", org: "Infectious Disease of Southern Nevada" },
-  { stars: 5, quote: "They handled our website, our ads, and our social in one place. First time we haven't had to manage three different vendors.", name: "Marcus D.", org: "DFW Auto Detailing" },
-  { stars: 5, quote: "Turnaround was fast and they actually explained what they were doing instead of hiding behind jargon.", name: "Priya S.", org: "Lewisville Family Dental" },
-  { stars: 5, quote: "Our new site paid for itself in the first month just from the leads it started bringing in.", name: "Tom R.", org: "North Texas Roofing Co." }
+  { stars: 5, quote: "Texas Click Digital makes everything functional and professional. Exactly what you want from a digital partner.", name: "Jeff L.", org: "Business Owner" }
 ];
 let testiIndex = 0;
 const testiStars = document.getElementById('testiStars');
