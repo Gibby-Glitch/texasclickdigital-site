@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Texas Click Digital — Websites, Apps &amp; Marketing for North Texas</title>
 <meta name="description" content="Texas Click Digital handles the whole picture — websites, apps, marketing, social, video, and brand — for businesses across the DFW Metroplex.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -59,8 +61,8 @@
     border-bottom:1px solid var(--line);
   }
   .nav{ display:flex; align-items:center; justify-content:space-between; padding:18px 0; }
-  .brand{ display:flex; align-items:center; gap:10px; font-family:var(--display); font-size:16px; text-transform:uppercase; }
-  .brand .dot{ width:9px; height:9px; background:var(--orange); border-radius:2px; display:inline-block; }
+  .brand{ display:flex; align-items:center; gap:12px; font-family:var(--display); font-size:16px; text-transform:uppercase; }
+  .brand img{ height:40px; width:auto; display:block; }
   nav.links{ display:flex; gap:32px; align-items:center; }
   nav.links a{ color:var(--gray); text-decoration:none; font-size:14px; font-weight:600; }
   nav.links a:hover{ color:var(--white); }
@@ -163,7 +165,8 @@
   footer{ padding:50px 0 30px; }
   .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; padding-bottom:32px; border-bottom:1px solid var(--line); }
   @media(max-width:700px){ .footer-grid{grid-template-columns:1fr;} }
-  .footer-brand{ display:flex; align-items:center; gap:10px; font-family:var(--display); font-size:15px; text-transform:uppercase; margin-bottom:12px; }
+  .footer-brand{ display:flex; align-items:center; gap:12px; font-family:var(--display); font-size:15px; text-transform:uppercase; margin-bottom:12px; }
+  .footer-brand img{ height:34px; width:auto; display:block; }
   .footer p{ font-size:13.5px; line-height:1.6; color:var(--gray-dim); max-width:300px; }
   .footer h4{ font-family:var(--mono); font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--white); margin-bottom:14px; }
   .footer ul{ list-style:none; display:grid; gap:10px; }
@@ -183,7 +186,7 @@
 
 <header>
   <div class="wrap nav">
-    <div class="brand"><span class="dot"></span> TEXAS CLICK DIGITAL</div>
+    <div class="brand"><img src="assets/logo-icon.png" alt="Texas Click Digital logo"> TEXAS CLICK DIGITAL</div>
     <nav class="links" id="navLinks">
       <a href="#services">Services</a>
       <a href="#process">Process</a>
@@ -287,7 +290,7 @@
       <div class="contact-detail"><span class="dot2"></span><div><strong>Email</strong><span>hello@texasclickdigital.com</span></div></div>
       <div class="contact-detail"><span class="dot2"></span><div><strong>Based in</strong><span>Lewisville, TX — serving all of North Texas</span></div></div>
     </div>
-    <form id="quoteForm" class="reveal">
+    <form id="quoteForm" class="reveal" action="https://formspree.io/f/mqpkzkjz" method="POST">
       <div class="row2">
         <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required placeholder="Full name"></div>
         <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required placeholder="(972) 555-0000"></div>
@@ -315,7 +318,7 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand"><span class="dot" style="width:8px;height:8px;background:var(--orange);border-radius:2px;display:inline-block;"></span> TEXAS CLICK DIGITAL</div>
+        <div class="footer-brand"><img src="assets/logo-icon.png" alt="Texas Click Digital logo"> TEXAS CLICK DIGITAL</div>
         <p>Full-service digital agency based in Lewisville, TX, serving businesses across the DFW Metroplex.</p>
       </div>
       <div>
@@ -389,9 +392,37 @@
   });
   renderTesti();
 
-  document.getElementById('quoteForm').addEventListener('submit', function(e){
+  const quoteForm = document.getElementById('quoteForm');
+  quoteForm.addEventListener('submit', async function(e){
     e.preventDefault();
-    alert('This form is a placeholder. Connect it to Formspree or another form service to receive real submissions — see the README for setup steps.');
+    const submitBtn = quoteForm.querySelector('button[type="submit"]');
+    const originalLabel = submitBtn.textContent;
+
+    if(quoteForm.action.includes('YOUR_FORM_ID')){
+      alert('Form not connected yet — replace YOUR_FORM_ID in index.html with your real Formspree endpoint. See the README for setup steps.');
+      return;
+    }
+
+    submitBtn.textContent = 'Sending…';
+    submitBtn.disabled = true;
+    try {
+      const res = await fetch(quoteForm.action, {
+        method: 'POST',
+        body: new FormData(quoteForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if(res.ok){
+        quoteForm.reset();
+        submitBtn.textContent = 'Sent — we\'ll be in touch!';
+      } else {
+        submitBtn.textContent = 'Something went wrong — try again';
+        submitBtn.disabled = false;
+      }
+    } catch (err) {
+      submitBtn.textContent = 'Something went wrong — try again';
+      submitBtn.disabled = false;
+    }
+    setTimeout(() => { submitBtn.textContent = originalLabel; submitBtn.disabled = false; }, 4000);
   });
 </script>
 
