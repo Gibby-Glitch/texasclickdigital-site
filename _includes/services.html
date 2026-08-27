@@ -6,14 +6,30 @@
       <p>Most agencies hand you off between departments. We keep the same team on your project from strategy through launch and beyond.</p>
     </div>
   </div>
-  <div class="wrap" style="padding:0;">
-    <div class="service-grid">
-      <div class="service-card reveal"><div class="ico">🖥️</div><h3>Websites</h3><p>Fast, mobile-first sites built to convert visitors into calls, bookings, and sales.</p></div>
-      <div class="service-card reveal"><div class="ico">📱</div><h3>Apps</h3><p>Custom web and mobile apps designed around how your customers actually use them.</p></div>
-      <div class="service-card reveal"><div class="ico">📈</div><h3>Marketing</h3><p>Search, ads, and email campaigns built to bring in leads you can measure.</p></div>
-      <div class="service-card reveal"><div class="ico">💬</div><h3>Social</h3><p>Content and management that keeps your business visible and on-brand every week.</p></div>
-      <div class="service-card reveal"><div class="ico">🎬</div><h3>Video</h3><p>Promo, product, and social video shot and edited to actually get watched.</p></div>
-      <div class="service-card reveal"><div class="ico">🎨</div><h3>Brand</h3><p>Logos, guidelines, and visual identity that make your business instantly recognizable.</p></div>
+
+  <div class="orbit-wrap reveal" id="orbitWrap">
+    <svg class="orbit-swoosh" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+      <path class="swoosh-path swoosh-path-1" d="M -80 170 Q 300 30 600 110 T 1280 70" fill="none"/>
+      <path class="swoosh-path swoosh-path-2" d="M -80 140 Q 300 -10 600 80 T 1280 40" fill="none"/>
+      <circle class="swoosh-spark swoosh-spark-1" r="4"/>
+      <circle class="swoosh-spark swoosh-spark-2" r="3"/>
+    </svg>
+
+    <div class="orbit-stage">
+      <button class="orbit-arrow orbit-prev" id="orbitPrev" aria-label="Previous service">‹</button>
+
+      <div class="orbit-track" id="orbitTrack">
+        <div class="orbit-card"><div class="ico">🖥️</div><h3>Websites</h3><p>Fast, mobile-first sites built to convert visitors into calls, bookings, and sales.</p></div>
+        <div class="orbit-card"><div class="ico">📱</div><h3>Apps</h3><p>Custom web and mobile apps designed around how your customers actually use them.</p></div>
+        <div class="orbit-card"><div class="ico">📈</div><h3>Marketing</h3><p>Search, ads, and email campaigns built to bring in leads you can measure.</p></div>
+        <div class="orbit-card"><div class="ico">💬</div><h3>Social</h3><p>Content and management that keeps your business visible and on-brand every week.</p></div>
+        <div class="orbit-card"><div class="ico">🎬</div><h3>Video</h3><p>Promo, product, and social video shot and edited to actually get watched.</p></div>
+        <div class="orbit-card"><div class="ico">🎨</div><h3>Brand</h3><p>Logos, guidelines, and visual identity that make your business instantly recognizable.</p></div>
+      </div>
+
+      <button class="orbit-arrow orbit-next" id="orbitNext" aria-label="Next service">›</button>
     </div>
+
+    <div class="orbit-dots" id="orbitDots"></div>
   </div>
 </section>
