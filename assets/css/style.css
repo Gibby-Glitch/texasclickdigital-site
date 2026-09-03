@@ -158,22 +158,34 @@ section{ padding:90px 0; }
 /* ===== Orbit carousel ===== */
 .orbit-wrap{ position:relative; padding-top:6px; }
 
-.orbit-swoosh{ position:absolute; top:-26px; left:0; width:100%; height:150px; pointer-events:none; z-index:0; overflow:visible; }
+.orbit-swoosh{ position:absolute; top:-40px; left:0; width:100%; height:230px; pointer-events:none; z-index:0; overflow:visible; }
 .swoosh-path{ stroke-linecap:round; }
-.swoosh-path-1{ stroke:var(--blue); stroke-width:2; opacity:0.55; stroke-dasharray:14 16; animation:swooshDash 2.6s linear infinite; }
-.swoosh-path-2{ stroke:var(--gold); stroke-width:1.5; opacity:0.4; stroke-dasharray:8 20; animation:swooshDash 3.4s linear infinite reverse; }
+.swoosh-path-1{ stroke:var(--blue); stroke-width:2; opacity:0.5; stroke-dasharray:14 16; animation:swooshDash 3.2s linear infinite; }
+.swoosh-path-2{ stroke:var(--gold); stroke-width:1.5; opacity:0.35; stroke-dasharray:8 20; animation:swooshDash 4.2s linear infinite reverse; }
 @keyframes swooshDash{ to{ stroke-dashoffset:-120px; } }
+
+.swoosh-globe{ filter:drop-shadow(0 0 6px rgba(47,111,237,0.35)); }
+
 .swoosh-spark{ fill:var(--white); filter:drop-shadow(0 0 6px var(--blue)) drop-shadow(0 0 10px var(--blue)); }
-.swoosh-spark-1{ offset-path:path('M -80 170 Q 300 30 600 110 T 1280 70'); animation:sparkTravel 2.6s linear infinite; }
-.swoosh-spark-2{ fill:var(--gold); filter:drop-shadow(0 0 6px var(--gold)); offset-path:path('M -80 140 Q 300 -10 600 80 T 1280 40'); animation:sparkTravel 3.4s linear infinite; animation-direction:reverse; }
+.swoosh-spark-1{
+  offset-path:path('M 130 128 Q 520 -20 860 58 A 58 58 0 1 1 860 174 A 58 58 0 1 1 860 58 Q 520 200 130 128 Z');
+  animation:sparkTravel 5.5s linear infinite;
+}
+.swoosh-spark-2{
+  fill:var(--gold); filter:drop-shadow(0 0 6px var(--gold));
+  offset-path:path('M 130 128 Q 520 -34 860 46 A 70 70 0 1 1 860 186 A 70 70 0 1 1 860 46 Q 520 214 130 128 Z');
+  animation:sparkTravel 7s linear infinite reverse;
+}
 @keyframes sparkTravel{
-  0%{ offset-distance:0%; opacity:0; }
-  6%{ opacity:1; }
-  94%{ opacity:1; }
-  100%{ offset-distance:100%; opacity:0; }
+  0%{ offset-distance:0%; }
+  100%{ offset-distance:100%; }
 }
 @media (prefers-reduced-motion: reduce){
   .swoosh-path-1, .swoosh-path-2, .swoosh-spark-1, .swoosh-spark-2{ animation:none; }
+}
+
+@media(max-width:820px){
+  .orbit-swoosh{ display:none; }
 }
 
 .orbit-stage{ position:relative; display:flex; align-items:center; justify-content:center; z-index:1; gap:8px; }
